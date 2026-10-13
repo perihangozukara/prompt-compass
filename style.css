@@ -1,0 +1,256 @@
+:root {
+/* 🆕 Bütün sayfayı etkileyen kök ayarlar */
+  color-scheme: dark;
+  /* 🆕 Kaydırma çubukları ve açılır menüler de koyu görünür */
+}
+
+body {
+/* Bütün sayfanın ayarları */
+  font-family: "Segoe UI", Arial, sans-serif;
+  /* Yazı tipi: Segoe UI, yoksa Arial */
+  max-width: 760px;
+  /* Sayfa en fazla 760 piksel genişlikte */
+  margin: 0 auto;
+  /* Sayfa ortalanır */
+  padding: 32px 16px;
+  /* Üst-alt 32, sağ-sol 16 piksel iç boşluk */
+  background: #0b1a2e;
+  /* Koyu lacivert zemin */
+  color: #cbd5e1;
+  /* Açık gri yazı */
+  line-height: 1.5;
+  /* Rahat satır aralığı */
+}
+
+h1 {
+/* Site adı */
+  margin: 0;
+  /* Dış boşluk yok */
+  color: white;
+  /* Beyaz */
+  font-size: 34px;
+  /* Büyük yazı */
+}
+
+h1 + p {
+/* 🆕 Hemen başlığın arkasındaki tanıtım cümlesi */
+  margin: 4px 0 28px;
+  /* Üstte 4, altta 28 piksel boşluk */
+  padding-bottom: 20px;
+  /* Yazıyla alttaki çizgi arasında boşluk */
+  color: #5eead4;
+  /* Açık turkuaz */
+  border-bottom: 2px solid #0d9488;
+  /* Altında turkuaz çizgi: başlık alanını kartlardan ayırır */
+}
+
+.card {
+/* Bölüm kartları */
+  background: #12294a;
+  /* Zeminden biraz açık lacivert: kart öne çıkar */
+  padding: 20px 24px;
+  /* İç boşluk */
+  border: 1px solid #1e3a5f;
+  /* İnce, biraz açık lacivert çerçeve */
+  border-radius: 14px;
+  /* Köşeleri yuvarlar */
+  margin-bottom: 16px;
+  /* Altında boşluk */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  /* Koyu gölge: kart zeminden kalkmış görünür */
+}
+
+h2 {
+/* Bölüm başlıkları */
+  margin: 0 0 8px;
+  /* Altında 8 piksel boşluk */
+  padding-bottom: 10px;
+  /* Yazıyla çizgi arasında boşluk */
+  font-size: 18px;
+  /* Düzenli boyut */
+  color: white;
+  /* Beyaz */
+  border-bottom: 1px solid #1e3a5f;
+  /* Altında ince lacivert ayırıcı çizgi */
+}
+
+label {
+/* Kutu başlıkları */
+  display: block;
+  /* Her başlık kendi satırında */
+  font-size: 14px;
+  /* Biraz küçük */
+  font-weight: 600;
+  /* Yarı kalın */
+  color: #e2e8f0;
+  /* Çok açık gri: neredeyse beyaz */
+  margin: 14px 0 6px;
+  /* Üstte 14, altta 6 piksel boşluk */
+}
+
+input, select, textarea {
+/* Yazı kutuları ve menüler */
+  width: 100%;
+  /* Kartın tamamını kaplar */
+  padding: 10px 12px;
+  /* İç boşluk */
+  border: 1px solid #2c4a73;
+  /* Lacivert çerçeve */
+  border-radius: 10px;
+  /* Köşeleri yuvarlar */
+  background: #0b1a2e;
+  /* Zeminle aynı koyu lacivert: kutu kartın içinde "oyuk" gibi durur */
+  color: white;
+  /* Yazdığın yazı beyaz */
+  font: inherit;
+  /* Yazı tipini sayfadan alır */
+  box-sizing: border-box;
+  /* Kutu taşmaz */
+  transition: border-color 0.2s, box-shadow 0.2s;
+  /* Çerçeve ve ışık halkası yumuşakça değişir */
+}
+
+input:focus, select:focus, textarea:focus {
+/* Kutu tıklanmış, içine yazılıyorken */
+  outline: none;
+  /* Tarayıcının kendi çerçevesini kaldırır */
+  border-color: #14b8a6;
+  /* Turkuaz çerçeve */
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
+  /* 🆕 Saydam turkuaz ışık halkası */
+}
+
+::placeholder {
+/* Soluk örnek yazılar */
+  color: #64748b;
+  /* Orta gri: yazdığın beyaz yazıdan kolayca ayrılır */
+}
+
+button {
+/* Bütün düğmelerin ortak ayarları (ikincil düğme görünümü) */
+  padding: 11px 20px;
+  /* İç boşluk */
+  margin: 10px 8px 0 0;
+  /* Üstte 10, sağda 8 piksel boşluk */
+  border: 2px solid #14b8a6;
+  /* Turkuaz çerçeve */
+  border-radius: 10px;
+  /* Köşeleri yuvarlar */
+  background: transparent;
+  /* Arka plan yok: kartın rengi görünür */
+  color: #5eead4;
+  /* Açık turkuaz yazı */
+  font: inherit;
+  /* Yazı tipini sayfadan alır */
+  font-weight: 600;
+  /* Yarı kalın */
+  cursor: pointer;
+  /* Üzerine gelince el işareti */
+  transition: background 0.2s;
+  /* Arka plan yumuşakça değişir */
+}
+
+button:hover {
+/* Fare düğmenin üzerindeyken */
+  background: rgba(20, 184, 166, 0.15);
+  /* 🆕 Saydam turkuaz arka plan */
+}
+
+#build {
+/* Ana düğme: Build prompt */
+  width: 100%;
+  /* Sayfa genişliğinde */
+  margin-right: 0;
+  /* Sağ boşluk yok */
+  padding: 14px;
+  /* Büyük iç boşluk */
+  font-size: 17px;
+  /* Büyük yazı */
+  background: #0d9488;
+  /* Dolu turkuaz */
+  border-color: #0d9488;
+  /* Çerçeve de turkuaz */
+  color: white;
+  /* Beyaz yazı */
+}
+
+#build:hover {
+/* Fare ana düğmenin üzerindeyken */
+  background: #14b8a6;
+  /* Biraz daha açık turkuaz */
+  border-color: #14b8a6;
+  /* Çerçeve de aynı renk */
+}
+
+.error, .success {
+/* Mesaj kutularının ortak ayarları (sadece mesaj varken uygulanır) */
+  padding: 10px 14px;
+  /* İç boşluk */
+  border-radius: 10px;
+  /* Köşeleri yuvarlar */
+  font-weight: 600;
+  /* Yarı kalın */
+}
+
+.error {
+/* Hata mesajı */
+  background: rgba(239, 68, 68, 0.12);
+  /* Saydam kırmızı arka plan */
+  color: #fca5a5;
+  /* Açık kırmızı yazı: koyu zeminde okunur */
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  /* Saydam kırmızı çerçeve */
+}
+
+.success {
+/* Başarı mesajı */
+  background: rgba(20, 184, 166, 0.12);
+  /* Saydam turkuaz arka plan */
+  color: #5eead4;
+  /* Açık turkuaz yazı */
+  border: 1px solid rgba(20, 184, 166, 0.4);
+  /* Saydam turkuaz çerçeve */
+}
+
+#output {
+/* Oluşan promptun kutusu */
+  font-family: Consolas, monospace;
+  /* Eşit genişlikli harfler */
+  font-size: 14px;
+  /* Biraz küçük */
+  background: #050f1d;
+  /* En koyu lacivert: kod editörü görünümü */
+  color: #e2e8f0;
+  /* Açık gri yazı */
+}
+
+#ai {
+/* "Hangi AI?" kutusu */
+  margin-top: 16px;
+  /* Üstünde boşluk */
+  padding: 14px 16px;
+  /* İç boşluk */
+  border-left: 4px solid #14b8a6;
+  /* Solda kalın turkuaz çizgi */
+  border-radius: 0 10px 10px 0;
+  /* Sağ köşeler yuvarlak */
+  background: rgba(20, 184, 166, 0.08);
+  /* Çok saydam turkuaz arka plan */
+  font-size: 15px;
+  /* Yazı boyutu */
+}
+
+#ai strong {
+/* "Hangi AI?" kutusundaki kalın yazılar (Best AI for this job, Also good) */
+  color: white;
+  /* Beyaz: öne çıkar */
+}
+.hint {
+/* "hint" sınıfı: düğmelerin altındaki küçük açıklama */
+  margin: 8px 0 0;
+  /* Üstünde 8 piksel boşluk */
+  font-size: 13px;
+  /* Küçük yazı */
+  color: #94a3b8;
+  /* Soluk gri: dikkat dağıtmaz */
+}

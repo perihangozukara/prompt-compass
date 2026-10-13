@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- Tarayıcıya bunun bir HTML sayfası olduğunu söyler -->
+<html lang="en">
+<!-- Sayfa başlar; sayfanın dili İngilizce -->
+<head>
+<!-- Görünmeyen bilgiler bölümü başlar -->
+  <meta charset="UTF-8">
+  <!-- Harflerin doğru görünmesini sağlar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 🆕 Sayfanın telefonda da düzgün görünmesini sağlar -->
+  <title>Prompt Compass</title>
+  <!-- Sekmede görünen ad -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Görünüşü style.css dosyasından alır (Adım 3'te yazılacak) -->
+</head>
+<!-- Görünmeyen bilgiler bölümü biter -->
+<body>
+<!-- Görünen kısım başlar -->
+  <h1>Prompt Compass</h1>
+  <!-- Ana başlık -->
+  <p>Fill in the boxes. Get a clear prompt and the right AI for the job.</p>
+  <!-- Kısa tanıtım cümlesi -->
+
+  <section class="card">
+  <!-- 🆕 1. bölüm başlar; "card" sınıfı ona kutu görünümü verecek -->
+    <h2>1. What do you want?</h2>
+    <!-- Bölüm başlığı -->
+    <label for="mode">How should the AI work?</label>
+    <!-- Menünün başlığı; for="mode" onu id'si "mode" olan menüye bağlar -->
+    <select id="mode">
+    <!-- 🆕 Çalışma biçimi menüsü başlar -->
+      <option value="request">I know what I want (REQUEST)</option>
+      <!-- 🆕 Seçenek; value = kodun okuyacağı değer -->
+      <option value="decide">Help me decide first (DECIDE)</option>
+      <!-- İkinci seçenek: Karar ortağı biçimi -->
+    </select>
+    <!-- Menü biter -->
+    <label for="type">Type of job</label>
+    <!-- İş türü menüsünün başlığı -->
+    <select id="type">
+    <!-- İş türü menüsü başlar -->
+      <option value="image">Image</option>
+      <!-- Görsel -->
+      <option value="text">Text</option>
+      <!-- Metin -->
+      <option value="video">Video</option>
+      <!-- Video -->
+      <option value="code">Code / web page</option>
+      <!-- Kod / web sayfası -->
+      <option value="research">Research / summary</option>
+      <!-- Araştırma / özet -->
+    </select>
+    <!-- Menü biter -->
+    <label for="task">Task (one job) *</label>
+    <!-- Görev kutusunun başlığı; * = zorunlu -->
+    <input id="task" placeholder="e.g. Create a cover image for my video">
+    <!-- Görev kutusu; soluk örnek yazı gösterir -->
+  </section>
+  <!-- 1. bölüm biter -->
+
+  <section class="card">
+  <!-- 2. bölüm: Ben kimim ve durumum -->
+    <h2>2. About you</h2>
+    <!-- Bölüm başlığı -->
+    <label for="goal">Goal: what is it for, who will see it? *</label>
+    <!-- Amaç kutusunun başlığı; zorunlu -->
+    <input id="goal" placeholder="e.g. For my YouTube channel, viewers will see it">
+    <!-- Amaç kutusu -->
+    <label for="level">Your level</label>
+    <!-- Seviye kutusunun başlığı -->
+    <input id="level" placeholder="e.g. I am new to this">
+    <!-- Seviye kutusu -->
+    <label for="have">What you already have</label>
+    <!-- Elimde olan kutusunun başlığı -->
+    <input id="have" placeholder="e.g. A draft, some notes, a photo">
+    <!-- Elimde olan kutusu -->
+    <label for="role">Role for the AI (optional)</label>
+    <!-- Rol kutusunun başlığı; isteğe bağlı -->
+    <input id="role" placeholder="e.g. an experienced graphic designer">
+    <!-- Rol kutusu -->
+    <label for="intro">Intro card (optional)</label>
+    <!-- Tanıtım kartı kutusunun başlığı -->
+    <textarea id="intro" rows="3" placeholder="Paste your intro card here"></textarea>
+    <!-- 🆕 Çok satırlı kutu, 3 satır yüksekliğinde -->
+  </section>
+  <!-- 2. bölüm biter -->
+
+  <section class="card">
+  <!-- 3. bölüm: Türe özel ayrıntılar -->
+    <h2>3. Details</h2>
+    <!-- Bölüm başlığı -->
+    <div id="details"></div>
+    <!-- Boş kutu: Seçilen türün soruları JavaScript ile buraya eklenecek -->
+  </section>
+  <!-- 3. bölüm biter -->
+
+  <section class="card">
+  <!-- 4. bölüm: İsteğe bağlı ekler -->
+    <h2>4. Extras (optional)</h2>
+    <!-- Bölüm başlığı -->
+    <label for="limits">Limits: how much, how long, how many?</label>
+    <!-- Sınır kutusunun başlığı -->
+    <input id="limits" placeholder="e.g. 3 versions, max 100 words">
+    <!-- Sınır kutusu -->
+    <label for="format">Format: how should it look?</label>
+    <!-- Biçim kutusunun başlığı -->
+    <input id="format" placeholder="e.g. bullet points, a table">
+    <!-- Biçim kutusu -->
+    <label for="example">Example you like</label>
+    <!-- Örnek kutusunun başlığı -->
+    <textarea id="example" rows="2"></textarea>
+    <!-- Örnek kutusu, 2 satır -->
+    <label for="avoid">Do not want</label>
+    <!-- İstemediğim kutusunun başlığı -->
+    <input id="avoid" placeholder="e.g. long intros, jargon">
+    <!-- İstemediğim kutusu -->
+    <label for="material">Material: text, code or info to work on</label>
+    <!-- Malzeme kutusunun başlığı -->
+    <textarea id="material" rows="4"></textarea>
+    <!-- Malzeme kutusu, 4 satır -->
+  </section>
+  <!-- 4. bölüm biter -->
+
+  <button id="build">Build prompt</button>
+  <!-- Promptu oluşturan düğme -->
+  <p id="message"></p>
+  <!-- Boş paragraf: hata ve başarı mesajları buraya yazılacak -->
+
+  <section class="card" id="result" hidden>
+  <!-- 🆕 Sonuç bölümü; başta gizli, prompt oluşunca görünecek -->
+    <h2>Your prompt</h2>
+    <!-- Bölüm başlığı -->
+    <textarea id="output" rows="14" readonly></textarea>
+    <!-- 🆕 Oluşan prompt burada görünür; sadece okunur -->
+    <button id="copy">Copy</button>
+    <!-- Kopyala düğmesi -->
+        <button id="check">Next: check the AI's answer</button>
+    <!-- Düğmenin yeni adı: "Sonraki adım: AI'nın cevabını denetle" -->
+         <p class="hint">Use this after you get the answer, in a different AI or a new chat. To see your prompt again, click Build prompt.</p>
+    <!-- Düğmenin ne zaman kullanılacağını anlatan küçük açıklama; "hint" sınıfı onu küçük ve soluk gösterecek -->
+    <div id="ai"></div>
+    <!-- Boş kutu: "Hangi AI?" önerisi buraya yazılacak -->
+  </section>
+  <!-- Sonuç bölümü biter -->
+  <script src="kurallar.js"></script>
+  <script src="script.js"></script><!--Bu iki satır JavaScript dosyalarını sayfaya bağlar. Sıra önemli: Önce `kurallar.js` gelmeli, çünkü `script.js` onun içindeki `RULES`'u kullanıyor. Sıra ters olursa Console'da `RULES is not defined` hatası görürsün. -->
+</body>
+<!-- Görünen kısım biter -->
+</html>
+<!-- Sayfa biter -->
